@@ -1,0 +1,15 @@
+{
+  "projectId": "71pjgr",
+  "viewportHeight":821,
+  "viewportWidth":1440,
+  "video": true,
+  "screenshotOnRunFailure": true,
+  "retries": 6,
+  "chromeWebSecurity":true,
+  "execTimeout":600000,
+  "pageLoadTimeout":60000,
+  "requestTimeout":20000,
+  "responseTimeout":30000,
+  "videosFolder": "artifacts/videos",
+  "screenshotsFolder": "artifacts/screenshots"
+}

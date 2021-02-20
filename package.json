@@ -1,0 +1,21 @@
+{
+  "name": "testcypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "npx cypress open",
+    "lint": "eslint .",
+    "test": "npx cypress run",
+    "test:record": "npx cypress run --record --key "
+  },
+  "author": "Thiago Amanajas",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^6.5.0"
+  },
+  "dependencies": {
+    "eslint": "^7.20.0",
+    "eslint-plugin-cypress": "^2.11.2"
+  }
+}

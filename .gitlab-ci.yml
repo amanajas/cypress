@@ -1,0 +1,44 @@
+default:
+  image: cypress/base:10
+
+variables:
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .npm
+    - cache/Cypress
+    - node_modules
+
+stages:
+  - build
+  - check
+  - test
+
+install:
+  stage: build
+  script:
+    - npm ci
+    - $(npm bin)/cypress cache path
+    - $(npm bin)/cypress cache list
+    - $(npm bin)/cypress verify
+  when: on_success
+
+lint:
+  stage: check
+  script:
+    - npm run lint
+  when: on_success
+
+execution:
+  stage: test
+  script:
+    - npm test
+  artifacts:
+    when: always
+    paths:
+      - artifacts/
+    expire_in: 7 day
+  when: on_success
